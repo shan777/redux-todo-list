@@ -4,13 +4,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'; //builds our store
+import { createStore, applyMiddleware } from 'redux'; //builds our store
+import reduxPromise from 'redux-promise';
 import rootReducer from './reducers';
 
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, {}, applyMiddleware(reduxPromise));
 
 ReactDOM.render(
     <Provider store={store}>

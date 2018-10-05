@@ -4,7 +4,7 @@ import axios from 'axios';
 const BASE_URL = 'http://api.reactprototypes.com';
 const API_KEY = '?key=718_unique_key_sh';
 
-export function getListData () {
+export function getListData() {
     const resp = axios.get(`${BASE_URL}/todos${API_KEY}`);
 
     return {
@@ -13,7 +13,7 @@ export function getListData () {
     }
 }
 
-export function addListItem (item) {
+export function addListItem(item) {
     const resp = axios.post(`${BASE_URL}/todos${API_KEY}`, item);
 
     return {
@@ -28,6 +28,21 @@ export function getSingleItem (id) {
 
     return {
         type: types.GET_SINGLE_ITEM,
+        payload: resp
+    }
+}
+
+export function clearSingleItem() {
+    return {
+        type: types.CLEAR_SINGLE_ITEM
+    };
+}
+
+export function toggleComplete(id) {
+    const resp = axios.put(`${BASE_URL}/todos/${id + API_KEY}`); //put and patch is for update
+    
+    return {
+        type: types.TOGGLE_COMPLETE,
         payload: resp
     }
 }

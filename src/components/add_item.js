@@ -22,7 +22,7 @@ class AddItem extends Component {
     }
 
     saveItem = async (values) => { //send to server now
-        console.log( 'Form values: ', values);
+        // console.log( 'Form values: ', values);
 
         await this.props.addListItem(values);
 

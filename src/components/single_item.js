@@ -15,7 +15,7 @@ class SingleItem extends Component {
     }
 
     render() {
-        console.log('Single item:', this.props.item); //item from line 29
+        //console.log('Single item:', this.props.item); //item from line 29
         const { item, toggleComplete, match: { params } } = this.props;
         return (
             <div>

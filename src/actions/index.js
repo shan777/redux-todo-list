@@ -21,3 +21,13 @@ export function addListItem (item) {
         payload: resp
     }
 }
+
+//action creator 
+export function getSingleItem (id) {
+    const resp = axios.get(`${BASE_URL}/todos/${id + API_KEY}`);
+
+    return {
+        type: types.GET_SINGLE_ITEM,
+        payload: resp
+    }
+}
